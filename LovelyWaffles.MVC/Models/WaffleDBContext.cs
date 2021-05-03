@@ -3,12 +3,13 @@
 namespace LovelyWaffles.MVC.Models
 {
     public class WaffleDbContext
-        :DbContext
+        : DbContext
     {
         public WaffleDbContext(DbContextOptions<WaffleDbContext> options)
-            :base(options)
+            : base(options)
         {
         }
         public DbSet<Waffle> Waffles { get; set; }
+        public DbSet<Ingradient> Ingradients { get; set; }
     }
 }
