@@ -33,5 +33,20 @@ namespace LovelyWaffles.MVC.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var waffle = _context.Waffles.Find(id);
+            return View(waffle);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Waffle waffle)
+        {
+            _context.Waffles.Update(waffle);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
