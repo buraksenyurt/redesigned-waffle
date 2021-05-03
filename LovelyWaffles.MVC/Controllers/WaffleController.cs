@@ -48,5 +48,23 @@ namespace LovelyWaffles.MVC.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int? id)
+        {
+            var waffle = _context.Waffles.Find(id);
+            if (waffle == null)
+                return NotFound();
+            return View(waffle);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var waffle = _context.Waffles.Find(id);
+            _context.Waffles.Remove(waffle);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
