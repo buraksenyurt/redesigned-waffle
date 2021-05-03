@@ -2,10 +2,10 @@
 
 namespace LovelyWaffles.MVC.Models
 {
-    public class WaffleDBContext
+    public class WaffleDbContext
         :DbContext
     {
-        public WaffleDBContext(DbContextOptions<WaffleDBContext> options)
+        public WaffleDbContext(DbContextOptions<WaffleDbContext> options)
             :base(options)
         {
         }
