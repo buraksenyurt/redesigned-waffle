@@ -1,0 +1,46 @@
+﻿@page "{id:int}"
+@model LovelyWaffles.RazorPages.Pages.Waffles.EditModel
+
+<h1>Edit</h1>
+
+<h4>Redesign your waffle's recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Waffle.WaffleId" class="control-label"></label>
+                <input asp-for="Waffle.WaffleId" class="form-control" disabled/>
+                <span asp-validation-for="Waffle.WaffleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Waffle.Title" class="control-label"></label>
+                <input asp-for="Waffle.Title" class="form-control" />
+                <span asp-validation-for="Waffle.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Waffle.InStock" /> @Html.DisplayNameFor(model => model.Waffle.InStock)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Waffle.Recipe" class="control-label"></label>
+                <input asp-for="Waffle.Recipe" class="form-control" />
+                <span asp-validation-for="Waffle.Recipe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to the future</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
