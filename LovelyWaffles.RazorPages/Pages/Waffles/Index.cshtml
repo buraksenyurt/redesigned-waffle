@@ -1,47 +1,50 @@
 ﻿@page
 @model LovelyWaffles.RazorPages.Pages.Waffles.IndexModel
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <label asp-for="@Model.Waffles[0].WaffleId"></label>
-            </th>
-            <th>
-                <label asp-for="@Model.Waffles[0].Title"></label>
-            </th>
-            <th>
-                <label asp-for="@Model.Waffles[0].InStock"></label>
-            </th>
-            <th>
-                <label asp-for="@Model.Waffles[0].Recipe"></label>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Waffles)
-        {
+    <p>
+        <a asp-page="Create">Add a new Lovely Waffle Recipe</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    <span>@item.WaffleId</span>
-                </td>
-                <td>
-                    <span class="font-weight-bold">@item.Title</span>
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.InStock)*@
-                    <input asp-for="@item.InStock" disabled />
-                </td>
-                <td>
-                    <span>@item.Recipe</span>
-                </td>
-                <td>
-                    <a asp-page="Edit" asp-route-id="@item.WaffleId">Edit</a>
-                    <a asp-page="Detail" asp-route-id="@item.WaffleId">Detail</a>
-                    <a asp-page="Delete" asp-route-id="@item.WaffleId">Delete</a>
-                </td>
+                <th>
+                    <label asp-for="@Model.Waffles[0].WaffleId"></label>
+                </th>
+                <th>
+                    <label asp-for="@Model.Waffles[0].Title"></label>
+                </th>
+                <th>
+                    <label asp-for="@Model.Waffles[0].InStock"></label>
+                </th>
+                <th>
+                    <label asp-for="@Model.Waffles[0].Recipe"></label>
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Waffles)
+            {
+                <tr>
+                    <td>
+                        <span>@item.WaffleId</span>
+                    </td>
+                    <td>
+                        <span class="font-weight-bold">@item.Title</span>
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.InStock)*@
+                        <input asp-for="@item.InStock" disabled />
+                    </td>
+                    <td>
+                        <span>@item.Recipe</span>
+                    </td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@item.WaffleId">Edit</a>
+                        <a asp-page="Detail" asp-route-id="@item.WaffleId">Detail</a>
+                        <a asp-page="Delete" asp-route-id="@item.WaffleId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
