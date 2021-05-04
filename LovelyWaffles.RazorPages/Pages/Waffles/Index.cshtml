@@ -1,0 +1,46 @@
+﻿@page
+@model LovelyWaffles.RazorPages.Pages.Waffles.IndexModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="@Model.Waffles[0].WaffleId"></label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waffles[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waffles[0].InStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waffles[0].Recipe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Waffles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WaffleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recipe)
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.WaffleId">Edit</a>
+                    <a asp-page="Detail" asp-route-id="@item.WaffleId">Detail</a>
+                    <a asp-page="Delete" asp-route-id="@item.WaffleId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
