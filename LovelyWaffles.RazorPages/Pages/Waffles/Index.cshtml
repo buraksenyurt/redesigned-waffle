@@ -8,13 +8,13 @@
                 <label asp-for="@Model.Waffles[0].WaffleId"></label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Waffles[0].Title)
+                <label asp-for="@Model.Waffles[0].Title"></label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Waffles[0].InStock)
+                <label asp-for="@Model.Waffles[0].InStock"></label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Waffles[0].Recipe)
+                <label asp-for="@Model.Waffles[0].Recipe"></label>
             </th>
             <th></th>
         </tr>
@@ -24,16 +24,17 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.WaffleId)
+                    <span>@item.WaffleId</span>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+                    <span class="font-weight-bold">@item.Title</span>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.InStock)
+                    @*@Html.DisplayFor(modelItem => item.InStock)*@
+                    <input asp-for="@item.InStock" disabled />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Recipe)
+                    <span>@item.Recipe</span>
                 </td>
                 <td>
                     <a asp-page="Edit" asp-route-id="@item.WaffleId">Edit</a>
